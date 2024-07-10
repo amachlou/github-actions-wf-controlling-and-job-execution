@@ -86,4 +86,4 @@ jobs:
       - name: run when failes
         run: |
           echo "Issue detected ...."
-          echo "${{ github }}"
+          echo "${{ toJson(github) }}"

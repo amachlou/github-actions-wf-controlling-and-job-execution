@@ -21,11 +21,12 @@ jobs:
         run: npm ci
       - name: Lint code
         run: npm run lint
-        # Calling the reusable WF
-      - name: Reusing the existing WF
-        uses: ./.github/workflows/resusable-wf.yml
       - name: show current folder
         run: pwd
+        # Calling the reusable WF
+      - name: Reusing the existing WF
+        uses: ./.github/workflows/intergrale-wf.yml
+      
   test:
     runs-on: ubuntu-latest
     steps:

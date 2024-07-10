@@ -33,6 +33,7 @@ jobs:
           path: node_modules
           key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
+      # Run dependency install only if cache hit didn't occur
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Test code
@@ -82,7 +83,7 @@ jobs:
       - name: Deploy
         run: echo "Deploying..."
   report:
-    needs: [test, build]
+    needs: lint
     runs-on: ubuntu-latest
     if: failure()
     steps:

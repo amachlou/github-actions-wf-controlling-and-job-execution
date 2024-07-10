@@ -1,0 +1,8 @@
+name: Reusable Workflow
+on: workflow_call
+jobs:
+  test-reusabilite:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show hello MSG
+        run: echo '** Hello World ! **'

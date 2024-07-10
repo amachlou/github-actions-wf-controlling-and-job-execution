@@ -1,5 +1,6 @@
-name: Website Deployment
+name: App Pipeline
 on:
+  workflow_dispatch:
   push:
     branches:
       - master

@@ -23,6 +23,9 @@ jobs:
         run: npm run lint
       - name: show current folder
         run: pwd
+      
+      - name: list files
+        run: ls
         # Calling the reusable WF
       - name: Reusing the existing WF
         uses: ./.github/workflows/intergrale-wf.yml

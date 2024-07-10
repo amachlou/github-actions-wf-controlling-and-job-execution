@@ -23,7 +23,9 @@ jobs:
         run: npm run lint
         # Calling the reusable WF
       - name: Reusing the existing WF
-        uses: ./resusable-wf
+        uses: ./.github/workflows/resusable-wf
+      - name: show current folder
+        run: pwd
   test:
     runs-on: ubuntu-latest
     steps:

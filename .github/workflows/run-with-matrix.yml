@@ -7,7 +7,14 @@ jobs:
     strategy:
       matrix:
         op-systems: [ubuntu-latest, windows-latest]
-
+        node-versions: [11, 14, 18]
+        include:
+          - op-systems: ubuntu-latest
+            node-versions: 10
+        exclude:
+          - op-systems: windows-latest
+            node-versions: 18
+    continue-on-error: true
     runs-on: ${{ matrix.op-systems }}
     steps:
       - name: Checkout code

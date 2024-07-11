@@ -1,6 +1,5 @@
 name: Integral pipeline - use the resusable
 on:
-  workflow_call:
   workflow_dispatch:
   push:
     branches:
@@ -30,7 +29,7 @@ jobs:
 
   reuse:
     # Calling the reusable WF
-    uses: ./.github/workflows/intergrale-wf.yml
+    uses: ./.github/workflows/reusable-wf.yml
   test:
     runs-on: ubuntu-latest
     steps:

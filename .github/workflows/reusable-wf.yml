@@ -14,6 +14,7 @@ jobs:
     steps:
       - name: Download the artifact
         uses: actions/download-artifact@v3
-            with: ${{ inputs.app-artifact }}
+        with:
+          name: ${{ inputs.app-artifact }}
       - name: List files
         run: ls -l

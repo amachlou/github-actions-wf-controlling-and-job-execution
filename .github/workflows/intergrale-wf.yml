@@ -23,13 +23,18 @@ jobs:
         run: npm run lint
       - name: show current folder
         run: pwd
-
+      
       - name: list files
         run: ls
-
+  # deploy1:
+  #   needs: build
+  #   uses: ./.github/workflows/reusable.yml
   reuse:
-    # Calling the reusable WF
-    uses: ./.github/workflows/intergrale-wf.yml
+    needs: lint
+        # Calling the reusable WF
+      # - name: Reusing the existing WF
+        uses: ./.github/workflows/intergrale-wf.yml
+      
   test:
     runs-on: ubuntu-latest
     steps:

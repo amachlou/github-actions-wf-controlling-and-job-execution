@@ -26,8 +26,13 @@ jobs:
       
       - name: list files
         run: ls
+  # deploy1:
+  #   needs: build
+  #   uses: ./.github/workflows/reusable.yml
+  reuse:
+    needs: lint
         # Calling the reusable WF
-      - name: Reusing the existing WF
+      # - name: Reusing the existing WF
         uses: ./.github/workflows/intergrale-wf.yml
       
   test:

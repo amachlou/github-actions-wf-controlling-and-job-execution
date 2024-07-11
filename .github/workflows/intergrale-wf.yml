@@ -28,8 +28,11 @@ jobs:
         run: ls
 
   reuse:
+    needs: lint
     # Calling the reusable WF
     uses: ./.github/workflows/reusable-wf.yml
+    with:
+      app-artifact: dist-files
   test:
     runs-on: ubuntu-latest
     steps:

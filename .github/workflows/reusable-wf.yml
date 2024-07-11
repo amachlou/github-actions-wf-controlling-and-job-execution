@@ -1,8 +1,19 @@
 name: Reusable Workflow
-on: workflow_call
+on:
+  workflow_call:
+    inputs:
+      app-artifact:
+        type: string
+        default: dist
+        description: The artifact to be downloaded injected from the caller workflow
+        required: false
+
 jobs:
-  test-reusabilite:
+  Get-artifact:
     runs-on: ubuntu-latest
     steps:
-      - name: Show hello MSG
-        run: echo '** Hello World ! **'
+      - name: Download the artifact
+        uses: actions/download-artifact@v3
+            with: ${{ inputs.app-artifact }}
+      - name: List files
+        run: ls -l

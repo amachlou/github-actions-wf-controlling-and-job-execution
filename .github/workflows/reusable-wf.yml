@@ -7,11 +7,20 @@ on:
         default: dist
         description: The artifact to be downloaded injected from the caller workflow
         required: false
+    outputs:
+      firstword:
+        description: "The first output string"
+        value: ${{ jobs.get-artifact.outputs.output1 }}
 
 jobs:
-  Get-artifact:
+  get-artifact:
     runs-on: ubuntu-latest
+    # Map the job outputs to step outputs
+    outputs:
+      output1: ${{ steps.step1.outputs.firstword }}
     steps:
+      - id: step1
+        run: echo "firstword=hello" >> $GITHUB_OUTPUT
       - name: Download the artifact
         uses: actions/download-artifact@v3
         with:

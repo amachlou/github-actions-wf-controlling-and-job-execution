@@ -86,7 +86,7 @@ jobs:
     steps:
       - run: echo ${{ needs.reuse.outputs.firstword }}
       - name: Get build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: dist-files
       - name: Output contents
